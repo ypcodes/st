@@ -54,9 +54,12 @@ install: st
 	@echo Please see the README file regarding the terminfo entry of st.
 	mkdir -p $(DESTDIR)$(ICONPREFIX)
 	[ -f $(ICONNAME) ] && cp -f $(ICONNAME) $(DESTDIR)$(ICONPREFIX) || :
+	mkdir -p $(DESTDIR)$(APPPREFIX)
+	cp -f st.desktop $(DESTDIR)$(APPPREFIX)
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/st
+	rm -f $(DESTDIR)$(APPPREFIX)/st.desktop
 	rm -f $(DESTDIR)$(PREFIX)/bin/st-copyout
 	rm -f $(DESTDIR)$(PREFIX)/bin/st-urlhandler
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/st.1
